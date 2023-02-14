@@ -30,7 +30,7 @@ def askInput():
         user_input = input("\nPlease guess a letter or a number: ")
         if len(user_input) == 1 and (user_input.isalpha() or user_input.isdigit()) and user_input.upper() not in used:
             used += user_input.upper()
-            guess = user_input
+            guess = user_input.upper()
             print(used)
             break
         else:
@@ -47,6 +47,7 @@ def checkGuess(guess, chances):
 movieName()
 askInput()
 checkGuess(guess, chances)
+print(guess)
 print(chances)
 print(selectedMovie)  # checking to see if a random movie is being printed from the selected list
 # doneTODO: implement finding vowels and then provide the vowels to the player for easy mode
