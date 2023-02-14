@@ -24,7 +24,7 @@ def movieName():
             print("_", end='')
 
 def askInput():
-    global used
+    nonlocal used # FIXME: SyntaxError for using nonlocal keyword
     global guess
     while True:
         user_input = input("\nPlease guess a letter or a number: ")
@@ -44,9 +44,20 @@ def checkGuess(guess, chances):
         print("Wrong Guess")
         chances += 1
 
+def alreadyGuessed(used):
+    new_used = used
+    for char in selectedMovie:
+        if char in new_used:
+            print(char, end='')
+        elif char == " ":
+            print(" ", end='')
+        else:
+            print("_", end='')
+
 movieName()
 askInput()
 checkGuess(guess, chances)
+alreadyGuessed(used) #FIXME: an extra unwanted valid input character at the end of the movie name
 print(guess)
 print(chances)
 print(selectedMovie)  # checking to see if a random movie is being printed from the selected list
