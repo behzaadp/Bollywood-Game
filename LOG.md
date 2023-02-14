@@ -16,3 +16,11 @@ Log 3(13/02/2023): \
 the beginning but i was on the brink of being annoyed in the
 end LMAO \
 -the learning part is pretty fun
+
+Log 4(14/02/2023): \
+-debugging with print works conveniently for now(also lowkey fun),
+although I read somewhere it isn't a good practice to use
+print statements
+to debug LMAO \
+-hoping to complete the project today, except for a few cosmetics
+i think
