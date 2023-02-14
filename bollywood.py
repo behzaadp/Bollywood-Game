@@ -23,24 +23,31 @@ def movieName():
         else:
             print("_", end='')
 
-def askInput(guess=None):
+def askInput():
     global used
+    global guess
     while True:
         user_input = input("\nPlease guess a letter or a number: ")
         if len(user_input) == 1 and (user_input.isalpha() or user_input.isdigit()) and user_input.upper() not in used:
             used += user_input.upper()
-            user_input = guess
+            guess = user_input
             print(used)
             break
         else:
             print("Invalid input, please enter only an unused letter or a number.")
             movieName()
 
-#def checkGuess():
+def checkGuess(guess, chances):
+    if guess in selectedMovie:
+        print(guess, "is a correct guess!")
+    else:
+        print("Wrong Guess")
+        chances += 1
 
 movieName()
 askInput()
-
+checkGuess(guess, chances)
+print(chances)
 print(selectedMovie)  # checking to see if a random movie is being printed from the selected list
 # doneTODO: implement finding vowels and then provide the vowels to the player for easy mode
 # print(*[i for i in selectedMovie if i in 'aeiou']) failed attempt
