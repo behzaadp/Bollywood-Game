@@ -23,4 +23,8 @@ although I read somewhere it isn't a good practice to use
 print statements
 to debug LMAO \
 -hoping to complete the project today, except for a few cosmetics
-i think
+i think \
+-i was confident to finish this today, but it seems that won't be
+achieved, im not done for the day but it looks like a big hurdle.
+nonlocal keyword is giving a syntaxerror for being used in a 
+non-nested function idky.
