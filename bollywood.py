@@ -8,10 +8,12 @@ l = file.readlines()
 selectedMovie = l[index].strip('\n')
 count = 0
 chances = 0
+guess = ''
 used = "AEIOU:"  # including ':'
 
 print(Fore.BLUE + "Hey, let's play Bollywood!")
 print(Fore.RED + "BOLLYWOOD" + Style.RESET_ALL)
+
 
 # movie with vowels
 def movieName():
@@ -23,8 +25,9 @@ def movieName():
         else:
             print("_", end='')
 
+
 def askInput():
-    nonlocal used # FIXME: SyntaxError for using nonlocal keyword
+    global used  # FIXME: SyntaxError for using nonlocal keyword
     global guess
     while True:
         user_input = input("\nPlease guess a letter or a number: ")
@@ -37,12 +40,14 @@ def askInput():
             print("Invalid input, please enter only an unused letter or a number.")
             movieName()
 
+
 def checkGuess(guess, chances):
     if guess in selectedMovie:
         print(guess, "is a correct guess!")
     else:
         print("Wrong Guess")
         chances += 1
+
 
 def alreadyGuessed(used):
     new_used = used
@@ -54,22 +59,27 @@ def alreadyGuessed(used):
         else:
             print("_", end='')
 
+
 movieName()
 askInput()
 checkGuess(guess, chances)
-alreadyGuessed(used) #FIXME: an extra unwanted valid input character at the end of the movie name
+alreadyGuessed(used)  # FIXME: an extra unwanted valid input character at the end of the movie name
 print(guess)
 print(chances)
 print(selectedMovie)  # checking to see if a random movie is being printed from the selected list
 # doneTODO: implement finding vowels and then provide the vowels to the player for easy mode
 # print(*[i for i in selectedMovie if i in 'aeiou']) failed attempt
 
-
+# number of characters in the movie name
 for i in range(0, len(selectedMovie)):
     if selectedMovie[i] != ' ':
         count = count + 1
-print(str(count))  # number of characters in the movie name
+print(str(count))
 # print("_" * count) prints without whitespaces
+
+#main working loop
+while True:
+    movieName()
 
 # movie without vowels
 for char in selectedMovie:
@@ -78,6 +88,3 @@ for char in selectedMovie:
     else:
         print("_", end="")
 print("")
-
-
-
